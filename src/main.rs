@@ -1,4 +1,5 @@
 use serde::Deserialize;
+use std::env;
 use std::error::Error;
 
 #[derive(Deserialize, Debug)]
@@ -33,11 +34,16 @@ fn compare_repos(repo_urls: Vec<&str>) -> Result<Vec<Repo>, Box<dyn Error>> {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let repo_urls = vec![
-        "rust-lang/rust", // Rustのリポジトリ
-        "torvalds/linux", // Linuxカーネルのリポジトリ
-        "facebook/react", // Reactのリポジトリ
-    ];
+    // コマンドライン引数を取得
+    let args: Vec<String> = env::args().collect();
+
+    // 引数がなければエラーメッセージを表示
+    if args.len() < 2 {
+        eprintln!("Usage: {} <repo1> <repo2> ...", args[0]);
+        return Ok(());
+    }
+
+    let repo_urls: Vec<&str> = args[1..].iter().map(|s| s.as_str()).collect();
 
     let repos = compare_repos(repo_urls)?;
 
