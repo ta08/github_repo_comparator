@@ -6,12 +6,12 @@
 コマンドライン引数でリポジトリのURLを指定して実行します。例えば、次のように実行します。
 
 ```bash
-cargo run -- rust-lang/rust torvalds/linux facebook/react
+cargo run -- output.csv rust-lang/rust torvalds/linux facebook/react
 ```
 
 ## 出力
 
-指定したリポジトリの情報が比較して出力されます。引数を変更することで、他のリポジトリも簡単に比較できます。
+指定したリポジトリの情報が標準出力に表示され、output.csvファイルに保存されます。CSVファイルには、リポジトリ名、URL、説明、言語、スター数が含まれます。
 
 ```
 Name                           URL                                                Description                    Language        Stars
