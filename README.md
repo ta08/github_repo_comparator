@@ -1,5 +1,6 @@
 # github_repo_comparator
 
+複数のリポジトリの情報を取得し、比較して出力するプログラムです。
 
 ## プログラムの実行
 
@@ -20,3 +21,7 @@ rust                           https://github.com/rust-lang/rust                
 linux                          https://github.com/torvalds/linux                  Linux kernel source tree       C               181229
 react                          https://github.com/facebook/react                  The library for web and native user interfaces. JavaScript      228707
 ```
+
+## 実験的プロジェクト
+
+本リポジトリは実験的な内容を含んでいます。
