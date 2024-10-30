@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     A[Start] --> B[Parse Command Line Arguments]
     B --> C{Enough Arguments?}
@@ -27,3 +28,4 @@ graph TD
     Q --> R[Write Repo Data]
     R --> S[Flush Writer]
     end
+```

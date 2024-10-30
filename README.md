@@ -22,6 +22,12 @@ linux                          https://github.com/torvalds/linux                
 react                          https://github.com/facebook/react                  The library for web and native user interfaces. JavaScript      228707
 ```
 
+## 処理フロー
+
+![処理フロー](/doc/mermaid-diagram-2024-10-30-223631.png)
+
+
 ## 実験的プロジェクト
 
 本リポジトリは実験的な内容を含んでいます。
+
