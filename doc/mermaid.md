@@ -1,3 +1,4 @@
+## graph
 ```mermaid
 graph TD
     A[Start] --> B[Parse Command Line Arguments]
@@ -28,4 +29,32 @@ graph TD
     Q --> R[Write Repo Data]
     R --> S[Flush Writer]
     end
+```
+
+## sequenceDiagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Main
+    participant CompareRepos
+    participant FetchRepoInfo
+    participant GitHubAPI
+    participant SaveToCSV
+
+    User->>Main: Run program with arguments
+    Main->>Main: Parse command line arguments
+    Main->>CompareRepos: Compare repos
+    loop For each repo URL
+        CompareRepos->>FetchRepoInfo: Fetch repo info
+        FetchRepoInfo->>GitHubAPI: Send GET request
+        GitHubAPI-->>FetchRepoInfo: Return JSON response
+        FetchRepoInfo-->>CompareRepos: Return Repo struct
+    end
+    CompareRepos-->>Main: Return Vec<Repo>
+    Main->>Main: Print repo information to console
+    Main->>SaveToCSV: Save results to CSV
+    SaveToCSV->>SaveToCSV: Write header and repo data
+    SaveToCSV-->>Main: Confirm save completed
+    Main->>User: Display success message
 ```
